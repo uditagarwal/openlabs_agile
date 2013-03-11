@@ -1,4 +1,4 @@
-:# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
     __init__
 
@@ -14,5 +14,5 @@ from .agile import *
 def register():
     Pool.register(
         Agile,
-        module='project', type_='model'
+        module='agile', type_='model'
     )
