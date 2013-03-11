@@ -33,18 +33,18 @@ requires.append('trytond >= %s.%s, < %s.%s' %
 setup(name='trytond_project',
     version=info.get('version', '0.0.1'),
     description='Tryton module with projects',
-    long_description=read('README'),
+   #:w long_description=read('README'),
     author='Tryton',
     url='http://www.tryton.org/',
     download_url=("http://downloads.tryton.org/" +
         info.get('version', '0.0.1').rsplit('.', 1)[0] + '/'),
-    package_dir={'trytond.modules.project': '.'},
+    package_dir={'trytond.modules.agile': '.'},
     packages=[
-        'trytond.modules.project',
-        'trytond.modules.project.tests',
+        'trytond.modules.agile',
+      # 'trytond.modules.project.tests',
         ],
     package_data={
-        'trytond.modules.project': (info.get('xml', [])
+        'trytond.modules.agile': (info.get('xml', [])
             + ['tryton.cfg', 'view/*.xml', 'locale/*.po', 'icons/*.svg']),
         },
     classifiers=[
@@ -74,7 +74,7 @@ setup(name='trytond_project',
     zip_safe=False,
     entry_points="""
     [trytond.modules]
-    project = trytond.modules.project
+    agile = trytond.modules.agile
     """,
     test_suite='tests',
     test_loader='trytond.test_loader:Loader',
