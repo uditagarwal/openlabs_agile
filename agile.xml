@@ -1,32 +1,33 @@
 <?xml version="1.0"?>
 <tryton>
-<data>
-<record model="ir.ui.view" id="agile_task_form">
-    <field name="model">project.work</field>
-    <field name="type">form</field>
-    <field name="inherit" ref="project.work_view_form" />
-    <field name="arch" type="xml">
-    <![CDATA[
-      <data>
-        <xpath
-              expr="/form/field[@name='sequence']" position="after">
-              <label name="category"/>
-              <field name="category"/>
-        </xpath>
-        <xpath expr="/form/notebook/page[@id='general']" position="after">
-              <page string="Children" id="children"
-               states="{'invisible': Not(Equal(Eval('type'), 'story'))}">
-              <field name="children" colspan="4"/>
-              <field name="categories"/>
-
-              </page>
-        </xpath>
-     </data>
-    ]]>
-    </field>
-</record>
+    <data>
+        <record model="ir.ui.view" id="agile_task_form">
+            <field name="model">project.work</field>
+            <field name="type">form</field>
+            <field name="inherit" ref="project.work_view_form" />
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <data>
+                        <xpath
+                        expr="/form/field[@name='sequence']" position="after">
+                        <label name="category"/>
+                        <field name="category"/>
+                        </xpath>
+                        <xpath expr="/form/notebook/page[@id='general']" 
+                        position="after">
+                        <page string="Children" id="children"
+                        states="{'invisible': Not(Equal(Eval('type'),
+                         'story'))}">
+                        <field name="children" colspan="4"/>
+                        <field name="categories"/>
+                        </page>
+                        </xpath>
+                    </data>
+                ]]>
+            </field>
+        </record>
   
-<record model="ir.ui.view" id="agile_task_tree">
+        <record model="ir.ui.view" id="agile_task_tree">
             <field name="model">project.work</field>
             <field name="type">tree</field>
             <field name="inherit" ref="project.work_view_list"/>
@@ -39,24 +40,22 @@
                 </data>
                 ]]>
             </field>
-</record>
+        </record>
         
  
-<record model="ir.action.act_window" id="act_story_tree">
-      <field name="name">Stories</field>
-      <field name="res_model">project.work</field>
-      <field name="domain">[('type', '=', 'story')]</field>
-      <field name="context"></field> 
-</record>
+        <record model="ir.action.act_window" id="act_story_tree">
+            <field name="name">Stories</field>
+            <field name="res_model">project.work</field>
+            <field name="domain">[('type', '=', 'story')]</field>
+            <field name="context"></field> 
+        </record>
 
-    <record model="ir.action.act_window.view" id="act_work_list_view1">
-        <field name="sequence" eval="10"/>
-        <field name="view" ref="agile_view_list"/>
-    </record>
-
+        <record model="ir.action.act_window.view" id="act_work_list_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="agile_view_list"/>
+        </record> 
       
-<menuitem parent="project.menu_project_tree" action="act_story_tree" 
-id="menu_story_tree"/>
-
-</data>
+        <menuitem parent="project.menu_project_tree" action="act_story_tree" 
+        id="menu_story_tree"/>
+    </data>
 </tryton>
