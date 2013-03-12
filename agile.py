@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-    Contains Code for Agile part of Project Module
+Contains Code for Agile part of Project Module
 
-    Implements allowing Agile Development through Projects
+Implements allowing Agile Development through Projects
 
-    :copyright: (c) 2013 by Openlabs Technologies & Consulting (P) Limited
-    :license: BSD, see LICENSE for more details.
+:copyright: (c) 2013 by Openlabs Technologies & Consulting (P) Limited
+:license: BSD, see LICENSE for more details.
 """
 
 from trytond.model import ModelView, ModelSQL, fields
@@ -33,8 +33,8 @@ class Agile(ModelSQL, ModelView):
         ('task', 'General Task'),
         ('bug', 'Defect/Bug'),
         ('test', 'Test')], 'Category',
-        states={
-            'invisible': Eval('type') != 'task'}, depends=['type']
+        states={'invisible': Eval('type') != 'task'}, depends=['type'])
+        'invisible': Eval('type') != 'task'}, depends=['type']
     )
 
     children_story = fields.One2Many(
