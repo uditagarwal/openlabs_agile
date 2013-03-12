@@ -16,13 +16,11 @@ __all__=['Agile']
 
 class Agile(ModelSQL, ModelView):
     'Agile'
-    __name__ = 'agile.agile'
-    _inherits = {'timesheet.work': 'work'}
-    work = fields.Many2One(
-            'timesheet.work','Work', required=True, ondelete='CASCADE'
-        )
-    project = fields.Many2One(
-            'project.work', 'Project', domain=[('type','=','project')],
-            required=True
-        )
-    
+    __name__ = 'project.work'
+    type = fields.Selection([
+            ('project','Project'),
+            ('task','Task'),
+            ('story','Story')
+        ],'Type', required=True, select=True)
+    parent = fields.Many2One('project.work','Parent',
+        domain=[('type','=','project')])
