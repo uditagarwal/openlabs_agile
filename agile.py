@@ -29,4 +29,4 @@ class Agile(ModelSQL, ModelView):
         ('bug', 'Defect/Bug'),
         ('test', 'Test')],'Category',
         states={
-            'invisible': Eval('type') != 'task'}, depends=['type'])
+            'invisible': Eval('type') != 'task'}, depends=['type']) 
