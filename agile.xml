@@ -19,7 +19,6 @@
                         states="{'invisible': Not(Equal(Eval('type'),
                          'story'))}">
                         <field name="children" colspan="4"/>
-                        <field name="categories"/>
                         </page>
                         </xpath>
                     </data>
@@ -41,8 +40,7 @@
                 ]]>
             </field>
         </record>
-        
- 
+      
         <record model="ir.action.act_window" id="act_story_tree">
             <field name="name">Stories</field>
             <field name="res_model">project.work</field>
@@ -50,11 +48,6 @@
             <field name="context"></field> 
         </record>
 
-        <record model="ir.action.act_window.view" id="act_work_list_view1">
-            <field name="sequence" eval="10"/>
-            <field name="view" ref="agile_view_list"/>
-        </record> 
-      
         <menuitem parent="project.menu_project_tree" action="act_story_tree" 
         id="menu_story_tree"/>
     </data>

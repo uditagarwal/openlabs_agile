@@ -41,7 +41,7 @@ setup(name='trytond_agile',
     package_dir={'trytond.modules.agile': '.'},
     packages=[
         'trytond.modules.agile',
-      # 'trytond.modules.project.tests',
+        'trytond.modules.agile.tests',
         ],
     package_data={
         'trytond.modules.agile': (info.get('xml', [])
