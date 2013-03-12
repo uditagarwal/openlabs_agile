@@ -34,8 +34,6 @@ class Agile(ModelSQL, ModelView):
         ('bug', 'Defect/Bug'),
         ('test', 'Test')], 'Category',
         states={'invisible': Eval('type') != 'task'}, depends=['type'])
-        'invisible': Eval('type') != 'task'}, depends=['type']
-    )
 
     children_story = fields.One2Many(
         'project.work', 'parent', 'Children',
