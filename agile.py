@@ -9,7 +9,7 @@
 """
 
 from trytond.model import ModelView, ModelSQL, fields
-from trytond.pyson import Eval
+from trytond.pyson import Eval, And
 from trytond.pool import Pool
 
 __all__=['Agile']
@@ -24,3 +24,9 @@ class Agile(ModelSQL, ModelView):
         ],'Type', required=True, select=True)
     parent = fields.Many2One('project.work','Parent',
         domain=[('type','=','project')])
+    category = fields.Selection([
+        ('task', 'General Task'),
+        ('bug', 'Defect/Bug'),
+        ('test', 'Test')],'Category',
+        states={
+            'invisible': Eval('type') != 'task'}, depends=['type'])

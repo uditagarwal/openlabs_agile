@@ -1,24 +1,22 @@
 <?xml version="1.0"?>
 <tryton>
 <data>
-  <!--<record model="ir.ui.view" id="agile_task_form">-->
-    <!--<field name="model">project.work</field>-->
-    <!--<field name="type">form</field>-->
-    <!--<field name="inherit" ref="project.work_view_form" />-->
-    <!--<field name="arch" type="xml">-->
-    <!--<![CDATA[-->
-      <!--<data>-->
-        <!--<xpath-->
-              <!--expr="/form/field[@name=&quot;sequence&quot;" position="after">-->
-              <!--<label name="type"/>-->
-              <!--<field name="type"/>-->
-    
-
-        <!--</xpath>-->
-     <!--</data>-->
-    <!--]]>-->
-    <!--</field>-->
-  <!--</record>--> 
+  <record model="ir.ui.view" id="agile_task_form">
+    <field name="model">project.work</field>
+    <field name="type">form</field>
+    <field name="inherit" ref="project.work_view_form" />
+    <field name="arch" type="xml">
+    <![CDATA[
+      <data>
+        <xpath
+              expr="/form/field[@name='sequence']" position="after">
+              <label name="category"/>
+              <field name="category"/>
+        </xpath>
+     </data>
+    ]]>
+    </field>
+  </record> 
   <record model="ir.action.act_window" id="act_story_tree">
       <field name="name">Stories</field>
       <field name="res_model">project.work</field>
