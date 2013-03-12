@@ -1,8 +1,13 @@
 <?xml version="1.0"?>
 <tryton>
 <data>
-  <record model="ir.ui.view">
 
+   <record model="ir.action.act_window" id="act_story_tree">
+      <field name="name">Stories</field>
+      <field name="res_model">project.work</field>
+      <field name="domain">[('type', '=', 'story')]</field>
+      <field name="context"></field>
   </record>
+  <menuitem parent="project.menu_work_tree" action="act_story_tree" id="menu_story_tree"/>
 </data>
 </tryton>

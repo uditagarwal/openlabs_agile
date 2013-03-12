@@ -30,7 +30,7 @@ for dep in info.get('depends', []):
 requires.append('trytond >= %s.%s, < %s.%s' %
     (major_version, minor_version, major_version, minor_version + 1))
 
-setup(name='trytond_project',
+setup(name='trytond_agile',
     version=info.get('version', '0.0.1'),
     description='Tryton module with projects',
    #:w long_description=read('README'),
