@@ -25,15 +25,12 @@ class Agile(ModelSQL, ModelView):
         'Type', required=True, select=True
     )
 
-    parent = fields.Many2One(
-        'project.work', 'Parent', domain=[('type', '=', 'project')]
-    )
-
     category = fields.Selection([
         ('task', 'General Task'),
         ('bug', 'Defect/Bug'),
         ('test', 'Test')], 'Category',
-        states={'invisible': Eval('type') != 'task'}, depends=['type'])
+        states={'invisible': Eval('type') != 'task'}, depends=['type']
+    )
 
     children_story = fields.One2Many(
         'project.work', 'parent', 'Children',

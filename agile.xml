@@ -18,7 +18,7 @@
                         <page string="Children" id="children"
                         states="{'invisible': Not(Equal(Eval('type'),
                          'story'))}">
-                        <field name="children" colspan="4"/>
+                        <field name="children_story" colspan="4"/>
                         </page>
                         </xpath>
                     </data>
